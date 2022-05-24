@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>User</title>
+</head>
+<body>
+
+    <div class="container"> 
+        <h1 class="mb-4">Users</h1>
+        <a href="/users/new" class="btn btn-success">New Article</a>
+
+        <% users.forEach(user => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= user.fName %></h4>
+        
+                             <a class="btn btn-primary" href="users/<%= user.id %>">Read More</a>
+                    <form class="d-inline" action="/users/<%= user.id %>?_method=DELETE" method="POST">
+                        <button  class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+</body>
+</html>
